@@ -1,0 +1,110 @@
+:root {     /* raiz do documento */
+    --azul: #0066ff;   /* declaração de variável (nesse caso, as cores principais) */
+    --cinza: #313131;
+} 
+
+* {     /* resetar o css para funcionar em qualquer navegador */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* o limite de todo o conteúdo é a borda da caixa (tag html ex: <header>) */
+}
+
+/*elementos base*/
+body {
+    background-color: var(--cinza);   /* usando a variável de cor */
+    font-family: 'Arial', Helvetica, sans-serif;
+    color: white;
+}
+
+header .container {
+    display: flex;  /* flexbox */
+    flex-direction: row;    /* row já é o default */
+    align-items: center;    /* (alinha verticalmente) desgrudar da borda de cima da caixa */
+    justify-content: space-between; /* alinha horizontalmente (space-between cria espaço entre os elementos que estão no container: o logo da netflix (h2) e os elementos de âncora)*/
+}
+
+header .logo {
+    margin-left: 5px;
+    color: var(--azul);
+    font-family: 'Arial Black', Times;
+    font-size: 40px;
+}
+
+header nav a {  /* elementos "início", "séries", "games", "documentários" */
+    text-decoration: none;  /* tira aquela linha sublinhada que parece um link */
+    color: #AAA;
+    margin-right: 10px; /* distanciamento entre os elementos */
+}
+
+header nav a:hover {    /* evento :hover (quando o mouse está em cima do elemento) */
+    color: #fff;
+}
+
+/*game principal*/
+.game-principal {
+    font-size: 16px;
+    background: linear-gradient(rgba(0, 0, 0, .50), rgba(0, 0, 0, .50)100%),url('../img/finalFantasy.jpg');
+    /*linear-gradient cria uma leve camada de cor, o .50 é a transparência
+    o gradient sempre pede mais de uma cor, por isso passou 2x o rgba*/
+    height: 400px;  /*tamanho da caixa que a imagem vai ocupar*/
+    background-size: cover; /*faz com que a imagem cubra toda a área da caixa sem zoom*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*justify-content sempre segue a direção do flex-direction*/
+    align-items: flex-start;    /*alinha da esquerda para a direita os elementos*/
+}
+
+.game-principal .descricao {
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+.game-principal .titulo {
+    margin-top: 15%;    /*ele mesmo faz um cálculo automático de acordo com o tamanho da tela, etc*/
+    font-size: 40px;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+}
+
+.game-principal .botao {
+    background-color: rgba(0, 0, 0, .50); 
+    border: none;
+    color: white;
+    padding: 15px; /*espaço interno do elemento (margem interna) primeiro valor é sempre cima e baixo e o segundo valor é esquerda e direita (pode ser até 4 valores no sentido horário)*/
+    margin-right: 15px;
+    font-size: 12px;
+    cursor: pointer;    /*identificar com o cursor que é uma parte clicável*/
+    transition: .3s ease all; /*cuida da parte de transição entre uma animação e outra*/
+}
+
+.game-principal .botao:hover {
+    background-color: white;    /*mudar a cor entre cinza e branco ao passar o cursor por cima dos botões*/
+    color: black;
+}
+
+.game-principal .botao i {
+    margin-right: 8px;      /*afastamento entre o ícone e o texto dos botões*/
+}
+
+.container {
+    margin-left: 20px;
+}
+
+.game-principal .container {
+    width: 70%;
+}
+
+.box-game { /*especificações para imagens do carrossel*/
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
+.carrossel-games { /*dar um espaço entre o carrossel e o game principal*/
+    margin-top: 5px;
+}
+
+/*
+    WRAPPER = envelopar
+    * no código, a classe wrapper foi chamada de "container", embora se aprofundar tenham diferenças
+    * facilita manipular os elementos filhos de 1 grau (não precisa modificar 1 por 1)
+*/
